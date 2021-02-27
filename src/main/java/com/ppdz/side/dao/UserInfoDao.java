@@ -12,4 +12,6 @@ public interface UserInfoDao {
      * @return
      */
     Integer RegUser(@Param("info") Map<String,Object> info);
+
+    Integer QueryUser(@Param("info") Map<String,Object> info);
 }

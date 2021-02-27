@@ -6,4 +6,9 @@
         INSERT INTO ppdz_user(username,password)
         VALUE (#{info.username},#{info.password})
     </insert>
+
+    <select id="QueryUser" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM ppdz_user
+        WHERE username=#{info.username}
+    </select>
 </mapper>

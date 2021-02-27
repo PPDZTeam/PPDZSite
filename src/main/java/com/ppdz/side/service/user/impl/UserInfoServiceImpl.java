@@ -17,9 +17,14 @@ public class UserInfoServiceImpl  implements UserInfoService {
     @Override
     public Map<String, Object> RegUser(Map<String, Object> info) {
         Map<String, Object> resultMap=new HashMap<>();
-        if (userInfoDao.RegUser(info) > 0){
-            resultMap.put("status",true);
+        if (userInfoDao.QueryUser(info)==0){
+            if (userInfoDao.RegUser(info) > 0){
+                resultMap.put("status",true);
+            }
+        }else {
+            resultMap.put("status",false);
         }
+
         return resultMap;
     }
 }
