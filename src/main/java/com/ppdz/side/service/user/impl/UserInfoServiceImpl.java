@@ -17,12 +17,17 @@ public class UserInfoServiceImpl  implements UserInfoService {
     @Override
     public Map<String, Object> RegUser(Map<String, Object> info) {
         Map<String, Object> resultMap=new HashMap<>();
+        //0代表注册成功
+        //1代表注册重复
+        // 2代表未知错误
         if (userInfoDao.QueryUser(info)==0){
             if (userInfoDao.RegUser(info) > 0){
-                resultMap.put("status",true);
+                resultMap.put("status",0);
+            }else {
+                resultMap.put("status",2);
             }
         }else {
-            resultMap.put("status",false);
+            resultMap.put("status",1);
         }
 
         return resultMap;
