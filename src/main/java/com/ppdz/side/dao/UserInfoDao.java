@@ -1,5 +1,6 @@
 package com.ppdz.side.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;
@@ -10,5 +11,5 @@ public interface UserInfoDao {
      * 用户注册
      * @return
      */
-    Integer RegUser(Map<String,Object> info);
+    Integer RegUser(@Param("info") Map<String,Object> info);
 }

@@ -4,6 +4,6 @@
 <mapper namespace="com.ppdz.side.dao.UserInfoDao">
     <insert id="RegUser">
         INSERT INTO ppdz_user(username,password)
-        VALUE ('senye','senye')
+        VALUE (#{info.username},#{info.password})
     </insert>
 </mapper>
